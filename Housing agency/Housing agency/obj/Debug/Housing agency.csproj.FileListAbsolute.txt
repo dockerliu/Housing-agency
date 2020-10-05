@@ -8,3 +8,14 @@ D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housi
 D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housing agency.pdb
 D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\bin\Debug\MySql.Data.dll
 D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CopyComplete
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csprojAssemblyReference.cache
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Properties.Resources.resources
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.GenerateResource.cache
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CoreCompileInputs.cache
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.exe
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.pdb
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\MySql.Data.dll
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe.config
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.pdb
+D:\workspace\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CopyComplete
