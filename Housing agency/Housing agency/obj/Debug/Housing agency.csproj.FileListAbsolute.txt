@@ -6,3 +6,5 @@ D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housi
 D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CoreCompileInputs.cache
 D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housing agency.exe
 D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housing agency.pdb
+D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\bin\Debug\MySql.Data.dll
+D:\workspace\CSHARP\Housing agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CopyComplete
