@@ -6,14 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using CCWin;
 
 namespace Housing_agency
 {
-    public partial class Form1 : Form
+    public partial class mainForm :CCSkinMain
     {
-        public Form1()
+        public mainForm()
         {
             InitializeComponent();
         }
+
     }
 }

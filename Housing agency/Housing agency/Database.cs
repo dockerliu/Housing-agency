@@ -16,7 +16,7 @@ namespace Housing_agency
         /// <returns></returns>
         public MySqlConnection GetConnection()
         {
-            return new MySqlConnection("server=192.168.1.95;;User Id=txgl;Password=111111;CharSet=utf8;port=3306;Convert Zero Datetime=True;Allow Zero Datetime=True");
+            return new MySqlConnection("server=192.168.1.95;Database=build;User Id=build;Password=111111;CharSet=utf8;port=3306;Convert Zero Datetime=True;Allow Zero Datetime=True");
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Housing_agency
         {
             if (con == null)
             {
-                con = new MySqlConnection("server=192.168.1.95;;User Id=txgl;Password=111111;CharSet=utf8;port=3306;Convert Zero Datetime=True;Allow Zero Datetime=True");
+                con = new MySqlConnection("server=192.168.1.95;Database=build;User Id=build;Password=111111;CharSet=utf8;port=3306;Convert Zero Datetime=True;Allow Zero Datetime=True");
 
             }
             if (con.State == ConnectionState.Closed)
