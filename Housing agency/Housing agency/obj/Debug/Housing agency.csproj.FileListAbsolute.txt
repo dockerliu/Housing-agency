@@ -23,7 +23,6 @@ D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe.config
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.pdb
-D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csprojAssemblyReference.cache
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Properties.Resources.resources
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.GenerateResource.cache
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CoreCompileInputs.cache
@@ -33,3 +32,4 @@ D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\bin\Debug\CSkin.dll
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Login.resources
 D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.mainForm.resources
+D:\workspace\CSHARP\Housing agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csprojAssemblyReference.cache

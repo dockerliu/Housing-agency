@@ -17,5 +17,10 @@ namespace Housing_agency
             InitializeComponent();
         }
 
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+           
+            
+        }
     }
 }

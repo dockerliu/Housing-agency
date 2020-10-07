@@ -82,6 +82,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -95,6 +96,86 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\1.jpg" />
+    <Content Include="img\11.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
+    <Content Include="img\5.jpg" />
+    <Content Include="img\6.jpg" />
+    <Content Include="img\7.jpg" />
+    <Content Include="img\back1.jpg" />
+    <Content Include="img\back2.jpg" />
+    <Content Include="img\back3.jpg" />
+    <Content Include="img\back4.jpg" />
+    <Content Include="img\back5.jpg" />
+    <None Include="img\backimg.jpg" />
+    <Content Include="img\baocun1.jpg" />
+    <Content Include="img\baocun2.jpg" />
+    <Content Include="img\cx1.jpg" />
+    <Content Include="img\cx2.jpg" />
+    <Content Include="img\cz1.jpg" />
+    <Content Include="img\cz2.jpg" />
+    <Content Include="img\dakai1.jpg" />
+    <Content Include="img\dakai2.jpg" />
+    <Content Include="img\daochu1.jpg" />
+    <Content Include="img\daochu2.jpg" />
+    <Content Include="img\dayin1.jpg" />
+    <Content Include="img\dayin2.jpg" />
+    <Content Include="img\deng2.jpg" />
+    <Content Include="img\denglu.jpg" />
+    <Content Include="img\dkht1.jpg" />
+    <Content Include="img\dkht2.jpg" />
+    <Content Include="img\dy1.jpg" />
+    <Content Include="img\dy2.jpg" />
+    <Content Include="img\dyfy1.jpg" />
+    <Content Include="img\dyfy2.jpg" />
+    <Content Include="img\dylb1.jpg" />
+    <Content Include="img\dylb2.jpg" />
+    <Content Include="img\dztd1.jpg" />
+    <Content Include="img\dztd2.jpg" />
+    <Content Include="img\htwj1.jpg" />
+    <Content Include="img\htwj2.jpg" />
+    <Content Include="img\ico.ico" />
+    <Content Include="img\lcw.jpg" />
+    <Content Include="img\Lock.jpg" />
+    <Content Include="img\login.jpg" />
+    <Content Include="img\mfcx1.jpg" />
+    <Content Include="img\mfcx2.jpg" />
+    <Content Include="img\queding1.jpg" />
+    <Content Include="img\queding2.jpg" />
+    <Content Include="img\quxiao1.jpg" />
+    <Content Include="img\quxiao2.jpg" />
+    <Content Include="img\qycj1.jpg" />
+    <Content Include="img\qycj2.jpg" />
+    <Content Include="img\sc1.jpg" />
+    <Content Include="img\sc2.jpg" />
+    <Content Include="img\shanchu1.jpg" />
+    <Content Include="img\shanchu2.jpg" />
+    <None Include="img\skinTabPageBG2.png" />
+    <Content Include="img\tb.jpg" />
+    <Content Include="img\tianjia1.jpg" />
+    <Content Include="img\tianjia2.jpg" />
+    <Content Include="img\tj1.jpg" />
+    <Content Include="img\tj2.jpg" />
+    <Content Include="img\tuichu.jpg" />
+    <Content Include="img\tuichu2.jpg" />
+    <Content Include="img\xg1.jpg" />
+    <Content Include="img\xg2.jpg" />
+    <Content Include="img\xgqy1.jpg" />
+    <Content Include="img\xgqy2.jpg" />
+    <Content Include="img\xinzeng1.jpg" />
+    <Content Include="img\xinzeng2.jpg" />
+    <Content Include="img\xiugai1.jpg" />
+    <Content Include="img\xiugai2.jpg" />
+    <Content Include="img\xzfy1.jpg" />
+    <Content Include="img\xzfy2.jpg" />
+    <Content Include="img\xztd1.jpg" />
+    <Content Include="img\xztd2.jpg" />
+    <Content Include="img\zfcx1.jpg" />
+    <Content Include="img\zfcx2.jpg" />
+    <Content Include="img\zj1.jpg" />
+    <Content Include="img\zj2.jpg" />
     <Content Include="MySql.Data.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
