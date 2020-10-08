@@ -38,7 +38,7 @@
             this.skinTabPageOrder = new CCWin.SkinControl.SkinTabPage();
             this.skinButton6 = new CCWin.SkinControl.SkinButton();
             this.skinButton5 = new CCWin.SkinControl.SkinButton();
-            this.skinButton2 = new CCWin.SkinControl.SkinButton();
+            this.btnNewOrder = new CCWin.SkinControl.SkinButton();
             this.skinTabPage2 = new CCWin.SkinControl.SkinTabPage();
             this.skinButton3 = new CCWin.SkinControl.SkinButton();
             this.skinButton7 = new CCWin.SkinControl.SkinButton();
@@ -167,7 +167,7 @@
             this.skinTabPageOrder.BackgroundImage = global::Housing_agency.Properties.Resources.skinTabPageBG2;
             this.skinTabPageOrder.Controls.Add(this.skinButton6);
             this.skinTabPageOrder.Controls.Add(this.skinButton5);
-            this.skinTabPageOrder.Controls.Add(this.skinButton2);
+            this.skinTabPageOrder.Controls.Add(this.btnNewOrder);
             this.skinTabPageOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.skinTabPageOrder.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinTabPageOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -231,31 +231,32 @@
             this.skinButton5.Text = "历史订单    ";
             this.skinButton5.UseVisualStyleBackColor = false;
             // 
-            // skinButton2
+            // btnNewOrder
             // 
-            this.skinButton2.BackColor = System.Drawing.Color.Transparent;
-            this.skinButton2.BaseColor = System.Drawing.Color.Transparent;
-            this.skinButton2.BorderColor = System.Drawing.Color.Transparent;
-            this.skinButton2.BorderInflate = new System.Drawing.Size(1, 1);
-            this.skinButton2.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinButton2.DownBack = null;
-            this.skinButton2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.skinButton2.GlowColor = System.Drawing.Color.Transparent;
-            this.skinButton2.Image = ((System.Drawing.Image)(resources.GetObject("skinButton2.Image")));
-            this.skinButton2.ImageSize = new System.Drawing.Size(136, 46);
-            this.skinButton2.InnerBorderColor = System.Drawing.Color.Transparent;
-            this.skinButton2.IsDrawBorder = false;
-            this.skinButton2.IsDrawGlass = false;
-            this.skinButton2.Location = new System.Drawing.Point(80, 35);
-            this.skinButton2.MouseBack = null;
-            this.skinButton2.MouseBaseColor = System.Drawing.Color.Transparent;
-            this.skinButton2.Name = "skinButton2";
-            this.skinButton2.NormlBack = null;
-            this.skinButton2.RoundStyle = CCWin.SkinClass.RoundStyle.BottomRight;
-            this.skinButton2.Size = new System.Drawing.Size(155, 60);
-            this.skinButton2.TabIndex = 0;
-            this.skinButton2.Text = " 新到订单    ";
-            this.skinButton2.UseVisualStyleBackColor = false;
+            this.btnNewOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.BaseColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.BorderColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.BorderInflate = new System.Drawing.Size(1, 1);
+            this.btnNewOrder.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.btnNewOrder.DownBack = null;
+            this.btnNewOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNewOrder.GlowColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnNewOrder.Image")));
+            this.btnNewOrder.ImageSize = new System.Drawing.Size(136, 46);
+            this.btnNewOrder.InnerBorderColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.IsDrawBorder = false;
+            this.btnNewOrder.IsDrawGlass = false;
+            this.btnNewOrder.Location = new System.Drawing.Point(80, 35);
+            this.btnNewOrder.MouseBack = null;
+            this.btnNewOrder.MouseBaseColor = System.Drawing.Color.Transparent;
+            this.btnNewOrder.Name = "btnNewOrder";
+            this.btnNewOrder.NormlBack = null;
+            this.btnNewOrder.RoundStyle = CCWin.SkinClass.RoundStyle.BottomRight;
+            this.btnNewOrder.Size = new System.Drawing.Size(155, 60);
+            this.btnNewOrder.TabIndex = 0;
+            this.btnNewOrder.Text = " 新到订单    ";
+            this.btnNewOrder.UseVisualStyleBackColor = false;
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
             // skinTabPage2
             // 
@@ -656,7 +657,7 @@
         private CCWin.SkinControl.SkinPanel skinPanelTop;
         private System.Windows.Forms.ImageList imageListLeftIco;
         private CCWin.SkinControl.SkinButton skinButton1;
-        private CCWin.SkinControl.SkinButton skinButton2;
+        private CCWin.SkinControl.SkinButton btnNewOrder;
         private CCWin.SkinControl.SkinPanel skinPanelBottom;
         private System.Windows.Forms.NotifyIcon HousingManager;
         private CCWin.SkinControl.SkinLabel skinLabel1;

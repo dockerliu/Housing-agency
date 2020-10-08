@@ -19,8 +19,30 @@ namespace Housing_agency
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-           
-            
+            this.MaximumSize.Height.CompareTo(this.Height);
+
+            #region 用户权限
+
+            if (login._RCGL == true)
+            {
+                this.skinTabPageOrder.Enabled = true;
+            }
+            else
+            {
+               // this.skinTabPageOrder.Enabled = false;
+            } 
+            #endregion
+
+        }
+        /// <summary>
+        /// 新订单按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNewOrder_Click(object sender, EventArgs e)
+        {
+            OrderNew orderNew = new OrderNew();
+            orderNew.Show();
         }
     }
 }
