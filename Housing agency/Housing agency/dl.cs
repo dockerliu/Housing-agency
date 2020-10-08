@@ -12,11 +12,11 @@ namespace Housing_agency
         public int InserHandle(sysHandleInfo syshandleInfo)
         {
             string date = DateTime.Now.ToString();
-            MySqlParameter[] para = { data.MakeInParam("@HandlePerson",MySqlDbType.VarChar,syshandleInfo.HandlePerson),
-                data.MakeInParam("@HandleContent",MySqlDbType.VarChar,syshandleInfo.HandleContent),
-            data.MakeInParam("@HandleRemark",MySqlDbType.VarChar,syshandleInfo.HandleRemark),
-            data.MakeInParam("@date",MySqlDbType.Datetime,date)};
-            string strsql = "INSERT INTO rizhi ( time, person, concent, remark, ) VALUES (@date,@HandlePerson,@HandleContent,@HandleRemark)";
+            MySqlParameter[] para = { data.MakeInParam("?HandlePerson",MySqlDbType.VarChar,syshandleInfo.HandlePerson),
+                data.MakeInParam("?HandleContent",MySqlDbType.VarChar,syshandleInfo.HandleContent),
+            data.MakeInParam("?HandleRemark",MySqlDbType.VarChar,syshandleInfo.HandleRemark),
+            data.MakeInParam("?date",MySqlDbType.Datetime,date)};
+            string strsql = "INSERT INTO rizhi ( time, person, concent, remark) VALUES (?date,?HandlePerson,?HandleContent,?HandleRemark)";//在使用MySQL的时候使用mysqlparameters需要将@变成？号
             return data.Runsql(strsql, para);
         }
     }

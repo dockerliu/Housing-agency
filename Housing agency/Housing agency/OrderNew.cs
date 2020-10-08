@@ -40,16 +40,17 @@ namespace Housing_agency
             {
                 string str = this.skinDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();//取出所选行的第一个单元格的值
                 string strsql = "select * from fangyuan where bianhao='" + str + "'";
+           
                 DataTable dt = data.Query(strsql);
                 //skinDataGridView2.DataSource = dt;
                 foreach (DataRow dr1 in dt.Rows)
                 {
                     string area = dr1["area"].ToString();
-                    string address = dr1["address"].ToString();
-                    string sql_a= "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where (area=@area or address=@adress) and bianhao!='"+str+"'";
+                    string address = dr1["address"].ToString();                    
+                    string sql_a = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where (area=?area or address=?address) and bianhao!='" + str + "'";
                     MySqlParameter[] par = {
-                        data.MakeInParam( "@area",MySqlDbType.VarChar,area),
-                        data.MakeInParam( "@address",MySqlDbType.VarChar,address),
+                        data.MakeInParam( "?area",MySqlDbType.VarChar,area),
+                        data.MakeInParam( "?address",MySqlDbType.VarChar,address),//在使用MySQL的时候使用mysqlparameters需要将@变成？号
                     };
                     DataTable dtb = data.Query(sql_a, par);
                     this.skinDataGridViewHoseAuto.DataSource = dtb;

@@ -15,7 +15,7 @@ namespace Housing_agency
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderNew());
+            Application.Run(new login());
         }
     }
 }
