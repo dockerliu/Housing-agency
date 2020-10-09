@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CCWin;
-using grproLib;
+using gregn6Lib;
 
 namespace Housing_agency.Print
 {
@@ -24,14 +24,20 @@ namespace Housing_agency.Print
 
         private void FormPrint_Load(object sender, EventArgs e)
         {
-            GridppReport gr = new GridppReport();//报表对象
-            //建议不要在报表中存储连接字符串字符串
-            //如果不设置ConnectionString或QuerySQL属性，则会使用报表内的连接字符串和SQL语句
-            gr.ConnectionString = "";//连接字符串
-            gr.QuerySQL = "";//SQL语句
-            gr.LoadFromFile("Print\\simple.grf");//本地报表路径
-            gr.ParameterByName("Name").AsString = "古河渚";//主报表传参
-            gr.Print(true);//不预览打印
+            GridppReport Report = new GridppReport();
+            string reportPath = Application.StartupPath + "\\Print\\simple.grf";
+
+            //从对应文件中载入报表模板数据
+            Report.LoadFromFile(reportPath);
+            //根据参数名称设置参数的值，我在模板中把静态文本框绑定了这个参数，这里也就是设置了静态文本的显示值
+            //Report.ParameterByName("test1").AsString = "d2322222222222222222";
+            //设置模板中图片的值            
+            //Report.ControlByName("PictureBox1").AsPictureBox.LoadFromFile(Application.StartupPath + "\\fileimages\\grid-2.png");
+
+            //设置模板中富文本的值
+            //Report.ControlByName("MemoBox1").AsMemoBox.Text = "asdfasfsdfsdfsdfsdfsf";
+
+            Report.PrintPreview(true);//打印预览，或者用print打印
         }
     }
 }

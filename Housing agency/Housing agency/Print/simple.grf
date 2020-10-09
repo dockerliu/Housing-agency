@@ -1,5 +1,5 @@
 ﻿{
-	"Version":"6.6.6.0",
+	"Version":"6.7.5.6",
 	"Title":"1a.简单表格",
 	"Author":"锐浪报表软件",
 	"Description":"演示一个最基本的列表报表。",
@@ -17,41 +17,110 @@
 		"CenterView":true,
 		"PrintAdaptMethod":"ResizeToFit",
 		"Recordset":{
-			"ConnectionString":"Provider=Microsoft.Jet.OLEDB.4.0;\r\nUser ID=Admin;\r\nData Source=..\\Data\\Northwind.mdb",
-			"QuerySQL":"select * from Customers\r\norder by Region,City",
+			"ConnectionString":"MYSQL;\r\nDatabase=build;\r\nPassword=111111;\r\nPort=3306;\r\nServer=192.168.1.95;\r\nUser=build;",
+			"QuerySQL":"select * from fangyuan",
 			"Field":[
 				{
-					"Name":"CustomerID"
+					"Name":"bianhao"
 				},
 				{
-					"Name":"CompanyName"
+					"Name":"laiyuan"
 				},
 				{
-					"Name":"ContactName"
+					"Name":"date",
+					"Type":"DateTime"
 				},
 				{
-					"Name":"ContactTitle"
+					"Name":"zhuangtai"
 				},
 				{
-					"Name":"Address"
+					"Name":"wuye"
 				},
 				{
-					"Name":"City"
+					"Name":"huxing"
 				},
 				{
-					"Name":"Region"
+					"Name":"mianji",
+					"Type":"Integer"
 				},
 				{
-					"Name":"PostalCode"
+					"Name":"area"
 				},
 				{
-					"Name":"Country"
+					"Name":"z_floor",
+					"Type":"Integer"
 				},
 				{
-					"Name":"Phone"
+					"Name":"n_floor",
+					"Type":"Integer"
 				},
 				{
-					"Name":"Fax"
+					"Name":"guwen"
+				},
+				{
+					"Name":"yongtu"
+				},
+				{
+					"Name":"wuye_type"
+				},
+				{
+					"Name":"chengdu"
+				},
+				{
+					"Name":"fang_type"
+				},
+				{
+					"Name":"jiancheng",
+					"Type":"Integer"
+				},
+				{
+					"Name":"address"
+				},
+				{
+					"Name":"lend",
+					"Type":"Integer"
+				},
+				{
+					"Name":"sell",
+					"Type":"Integer"
+				},
+				{
+					"Name":"lend_shuoming"
+				},
+				{
+					"Name":"sell_shuoming"
+				},
+				{
+					"Name":"xiangxi"
+				},
+				{
+					"Name":"lend_price",
+					"Type":"Float"
+				},
+				{
+					"Name":"sell_price",
+					"Type":"Float"
+				},
+				{
+					"Name":"jichusheshi"
+				},
+				{
+					"Name":"peitaosheshi"
+				},
+				{
+					"Name":"yezhu_name"
+				},
+				{
+					"Name":"tele"
+				},
+				{
+					"Name":"MobliePhone"
+				},
+				{
+					"Name":"beizhu"
+				},
+				{
+					"Name":"yezhu_address"
 				}
 			]
 		},
@@ -109,47 +178,48 @@
 			"ColumnContentCell":[
 				{
 					"Column":"CustomerID",
-					"DataField":"CustomerID"
+					"DataField":"bianhao"
 				},
 				{
 					"Column":"CompanyName",
-					"DataField":"CompanyName"
+					"DataField":"wuye"
 				},
 				{
 					"Column":"ContactName",
-					"DataField":"ContactName"
+					"DataField":"yezhu_name"
 				},
 				{
 					"Column":"ContactTitle",
-					"DataField":"ContactTitle"
+					"DataField":"yongtu"
 				},
 				{
 					"Column":"Address",
-					"DataField":"Address"
+					"DataField":"address"
 				},
 				{
 					"Column":"City",
-					"DataField":"City"
+					"DataField":"area"
 				},
 				{
 					"Column":"Region",
-					"DataField":"Region"
+					"DataField":"area"
 				},
 				{
 					"Column":"PostalCode",
-					"DataField":"PostalCode"
+					"TextAlign":"MiddleRight",
+					"DataField":"lend"
 				},
 				{
 					"Column":"Country",
-					"DataField":"Country"
+					"DataField":"beizhu"
 				},
 				{
 					"Column":"Phone",
-					"DataField":"Phone"
+					"DataField":"MobliePhone"
 				},
 				{
 					"Column":"Fax",
-					"DataField":"Fax"
+					"DataField":"tele"
 				}
 			]
 		},
@@ -250,7 +320,7 @@
 					"Bold":true,
 					"Charset":134
 				},
-				"Text":"欢迎访问Grid++Report网站www.rubylong.cn，了解最新产品信息。"
+				"Text":"一米百货欢迎你"
 			},
 			{
 				"Type":"Line",
@@ -296,7 +366,7 @@
 					"Type":"StaticBox",
 					"Name":"StaticBox1",
 					"Center":"Horizontal",
-					"Left":6.29708,
+					"Left":10.9008,
 					"Top":0.185208,
 					"Width":3.41313,
 					"Height":0.582083,
@@ -306,7 +376,7 @@
 						"Bold":true,
 						"Charset":134
 					},
-					"Text":"客户基本信息"
+					"Text":"房源客户基本信息"
 				}
 			]
 		}

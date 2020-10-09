@@ -206,13 +206,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="grproLib">
-      <Guid>{715CBE0F-4F50-46EF-B009-CACED3A5C868}</Guid>
-      <VersionMajor>5</VersionMajor>
+    <COMReference Include="gregn6Lib">
+      <Guid>{4018F953-1BFE-441E-8A04-DC8BA1FF060E}</Guid>
+      <VersionMajor>6</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>True</Isolated>
+      <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="stdole">
