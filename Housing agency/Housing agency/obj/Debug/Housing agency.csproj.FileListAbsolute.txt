@@ -51,3 +51,25 @@ D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agen
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CopyComplete
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.exe
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.pdb
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\MySql.Data.dll
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe.config
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.pdb
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\CSkin.dll
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.login.resources
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.mainForm.resources
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.OrderNew.resources
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Properties.Resources.resources
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.GenerateResource.cache
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CoreCompileInputs.cache
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CopyComplete
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.exe
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.pdb
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Print\simple.grf
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\Housing agency.exe.manifest
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\bin\Debug\gregn50.dll
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csprojAssemblyReference.cache
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Interop.grproLib.dll
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.ResolveComReference.cache
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Print.FormPrint.resources
+D:\workspace\CSHARP\dockerliu\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.exe.manifest

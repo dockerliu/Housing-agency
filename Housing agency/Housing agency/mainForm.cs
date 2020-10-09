@@ -44,5 +44,17 @@ namespace Housing_agency
             OrderNew orderNew = new OrderNew();
             orderNew.Show();
         }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("你确定要退出该系统吗？","提示：",MessageBoxButtons.OKCancel,MessageBoxIcon.Question)==DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
     }
 }

@@ -101,12 +101,21 @@ namespace Housing_agency
                 con = new MySqlConnection("server=192.168.1.95;Database=build;User Id=build;Password=111111;CharSet=utf8;port=3306;Convert Zero Datetime=True;Allow Zero Datetime=True");
 
             }
-            if (con.State == ConnectionState.Closed)
+            if (con.State != ConnectionState.Open)
             {
                 con.Open();
             }
         }
-
+        /// <summary>
+        ///  关闭数据库连接
+        /// </summary>
+        public void Close()
+        {
+            if (con.State!=ConnectionState.Closed)
+            {
+                con.Close();
+            }
+        }
         /// <summary>
         /// 要执行SQL语句，该方法返回一个DataTable数据
         /// </summary>

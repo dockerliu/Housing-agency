@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CCWin;
+using Housing_agency.Print;
 
 namespace Housing_agency
 {
@@ -29,31 +30,210 @@ namespace Housing_agency
             this.MaximumSize.Height.CompareTo(this.Height);
             string sql = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
             DataTable da = data.Query(sql);
-            this.skinDataGridView1.DataSource = da;
-            currentSelectIndex = this.skinDataGridView1.Rows[skinDataGridView1.SelectedRows[0].Index].Cells[0].Value.ToString();
+            this.skinDataGridViewMain.DataSource = da;
+            currentSelectIndex = this.skinDataGridViewMain.Rows[skinDataGridViewMain.SelectedRows[0].Index].Cells[0].Value.ToString();
             //MessageBox.Show(currentSelectIndex);//所有行的选中行的第一个单元格的值
         }
-
+        /// <summary>
+        /// 查询DataGridView数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void skinDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                string str = this.skinDataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();//取出所选行的第一个单元格的值
-                string strsql = "select * from fangyuan where bianhao='" + str + "'";
-           
-                DataTable dt = data.Query(strsql);
-                //skinDataGridView2.DataSource = dt;
-                foreach (DataRow dr1 in dt.Rows)
+                string str = this.skinDataGridViewMain.Rows[e.RowIndex].Cells[0].Value.ToString();//取出所选行的第一个单元格的值
+                                                                                                  //查询自动匹配信息
+                try
                 {
-                    string area = dr1["area"].ToString();
-                    string address = dr1["address"].ToString();                    
-                    string sql_a = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where (area=?area or address=?address) and bianhao!='" + str + "'";
-                    MySqlParameter[] par = {
+                    string strsql = "select * from fangyuan where bianhao='" + str + "'";
+
+                    DataTable dt = data.Query(strsql);
+                    //skinDataGridView2.DataSource = dt;
+                    foreach (DataRow dr1 in dt.Rows)
+                    {
+                        string area = dr1["area"].ToString();
+                        string address = dr1["address"].ToString();
+                        string sql_a = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where (area=?area or address=?address) and bianhao!='" + str + "'";
+                        MySqlParameter[] par = {
                         data.MakeInParam( "?area",MySqlDbType.VarChar,area),
                         data.MakeInParam( "?address",MySqlDbType.VarChar,address),//在使用MySQL的时候使用mysqlparameters需要将@变成？号
                     };
-                    DataTable dtb = data.Query(sql_a, par);
-                    this.skinDataGridViewHoseAuto.DataSource = dtb;
+                        DataTable dtb = data.Query(sql_a, par);
+                        this.skinDataGridViewHoseAuto.DataSource = dtb;
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally { data.Close(); }
+                //查询跟进人信息
+                try
+                {
+                    string sql_genjin = "SELECT f_genjin,genjinren,genjin_time,neirong FROM f_genjin_fy WHERE bianhao='" + str + "'";
+                    DataTable dd = data.Query(sql_genjin);
+                    this.skinDataGridViewGenjin.DataSource = dd;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally { data.Close(); }
+                //查询房源信息
+                try
+                {
+                    string sql_source = "SELECT  wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where bianhao='" + str + "'";
+                    DataTable ddsource = data.Query(sql_source);
+                    skinDataGridViewHouseSource.DataSource = ddsource;
+
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally { data.Close(); }
+
+                //查询房源保密信息
+
+                try
+                {
+                    string sql_yezhu = "SELECT yezhu_name as 业主名字,tele AS 业主电话,MobliePhone as 业主移动电话,yezhu_address as 业主地址 FROM fangyuan WHERE bianhao='" + str + "'";
+                    DataTable dd = data.Query(sql_yezhu);
+                    skinDataGridViewSecrect.DataSource = dd;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally { data.Close(); }
+            }
+            catch
+            {
+                //不做处理
+            }
+        }
+        /// <summary>
+        /// 查询出租CheckBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinCheckBoxRent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (skinCheckBoxRent.Checked == true)
+            {
+                string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where lend=1";
+                DataTable dd_rent = data.Query(sql_rent);
+                skinDataGridViewMain.DataSource = dd_rent;
+                skinDataGridViewMain.Refresh();
+
+            }
+            if (skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)
+            {
+                string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
+                DataTable dd_rent = data.Query(sql_rent);
+                skinDataGridViewMain.DataSource = dd_rent;
+                skinDataGridViewMain.Refresh();
+            }
+            if(skinCheckBoxRent.Checked == false)
+            {
+                string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
+                DataTable dd_rent = data.Query(sql_rent);
+                skinDataGridViewMain.DataSource = dd_rent;
+                skinDataGridViewMain.Refresh();
+            }
+        }
+        /// <summary>
+        /// 查询出售CheckBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinCheckBoxSell_CheckedChanged(object sender, EventArgs e)
+        {
+            if (skinCheckBoxSell.Checked == true)
+            {
+                string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan where sell=1";
+                DataTable dd_rent = data.Query(sql_rent);
+                skinDataGridViewMain.DataSource = dd_rent;
+                skinDataGridViewMain.Refresh();
+            }
+             if (skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)
+            {
+                string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
+                DataTable dd_rent = data.Query(sql_rent);
+                skinDataGridViewMain.DataSource = dd_rent;
+                skinDataGridViewMain.Refresh();
+            }
+            if (skinCheckBoxSell.Checked == false)
+            {
+                string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
+                DataTable dd_rent = data.Query(sql_rent);
+                skinDataGridViewMain.DataSource = dd_rent;
+                skinDataGridViewMain.Refresh();
+            }
+        }
+        /// <summary>
+        /// 查询最近天数CheckBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinCheckBoxLast_CheckedChanged(object sender, EventArgs e)
+        {
+            if (skinCheckBoxLast.Checked)
+            {
+                string sql_select = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan ";
+                if (skinWaterTextBoxDay.Text!="")
+                {
+                    DateTime dateTime = DateTime.Now.Date.AddDays(-Convert.ToInt32(skinWaterTextBoxDay.Text));
+                    sql_select += " where date<='" + DateTime.Now.AddDays(1) + "'and date>='" + dateTime+"'";
+                }
+
+                DataTable dd_day =data.Query(sql_select);
+                skinDataGridViewMain.DataSource = dd_day;
+                skinDataGridViewMain.Refresh();
+                this.skinCheckBoxRent.Enabled = false;
+                this.skinCheckBoxSell.Enabled = false;
+            }
+            else
+            {
+                //skinWaterTextBoxDay.Text = "";
+                this.skinCheckBoxRent.Enabled = true;
+                this.skinCheckBoxSell.Enabled = true;
+                string sql_select = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan ";
+                DataTable dd_day = data.Query(sql_select);
+                skinDataGridViewMain.DataSource = dd_day;
+                skinDataGridViewMain.Refresh();
+               
+            }
+        }
+        /// <summary>
+        /// 查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinButtonSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql_search = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan ";
+                if (txtGoodsSearchInfo.Text=="")
+                {
+                    DataTable dd_search = data.Query(sql_search);
+                    skinDataGridViewMain.DataSource = dd_search;
+                    skinDataGridViewMain.Refresh();
+                }
+                else
+                {
+                    sql_search += "where bianhao like '%" + txtGoodsSearchInfo.Text + "%' or date like '%" + txtGoodsSearchInfo.Text + "%' or date like '%" + txtGoodsSearchInfo.Text + "%' or wuye like '%" + txtGoodsSearchInfo.Text + "%' or fang_type like '%" + txtGoodsSearchInfo.Text + "%' or area like '%" + txtGoodsSearchInfo.Text + "%' or address like '%" + txtGoodsSearchInfo.Text + "%' ";
+                    DataTable dd_search = data.Query(sql_search);
+                    skinDataGridViewMain.DataSource = dd_search;
+                    skinDataGridViewMain.Refresh();
                 }
             }
             catch (Exception)
@@ -61,6 +241,68 @@ namespace Housing_agency
 
                 throw;
             }
+            finally { data.Close(); }
+        }
+        /// <summary>
+        /// 刷新按钮功能的实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinButtonRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql_select = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan ";
+                DataTable dd_day = data.Query(sql_select);
+                skinDataGridViewMain.DataSource = dd_day;
+                skinDataGridViewMain.Refresh();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { data.Close(); }
+            this.skinCheckBoxLast.Checked = false;
+            this.skinCheckBoxRent.Checked = false;
+            this.skinCheckBoxSell.Checked = false;
+            this.txtGoodsSearchInfo.Text = "";
+            this.skinWaterTextBoxDay.Text = "";
+        }
+        /// <summary>
+        /// 限制窗口只能输入数字框
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinWaterTextBoxDay_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int )e.KeyChar>=48 && (int)e.KeyChar<=57)
+            {
+                if (this.skinWaterTextBoxDay.Text.Length<1)
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请输入一个数字");
+                e.Handled = false;
+            }
+        }
+        /// <summary>
+        /// 打印按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinButtonPrinter_Click(object sender, EventArgs e)
+        {
+            FormPrint fp = new FormPrint();
+            fp.id = skinDataGridViewMain.CurrentRow.Cells[0].Value.ToString();
+            fp.Show();
         }
     }
 }
