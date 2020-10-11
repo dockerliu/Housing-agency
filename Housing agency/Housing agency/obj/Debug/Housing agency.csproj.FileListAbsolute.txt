@@ -75,4 +75,9 @@ D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agen
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csproj.CopyComplete
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.exe
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.pdb
+D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\bin\Debug\Interop.gregn6Lib.dll
+D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\bin\Debug\AxInterop.gregn6Lib.dll
+D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\AxInterop.gregn6Lib.dll
 D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing agency.csprojAssemblyReference.cache
+D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Order.FormLendSearch.resources
+D:\workspace\dockerliu\Housing-agency\Housing-agency\Housing agency\Housing agency\obj\Debug\Housing_agency.Order.FormAdd.resources

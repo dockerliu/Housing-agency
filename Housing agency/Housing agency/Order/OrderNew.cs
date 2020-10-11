@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using CCWin;
 using Housing_agency.Print;
+using Housing_agency.Order;
 
 namespace Housing_agency
 {
@@ -134,7 +135,7 @@ namespace Housing_agency
                 skinDataGridViewMain.Refresh();
 
             }
-            if (skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)
+            if ((skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)|| (skinCheckBoxRent.Checked == false && skinCheckBoxSell.Checked == false))
             {
                 string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
                 DataTable dd_rent = data.Query(sql_rent);
@@ -163,7 +164,7 @@ namespace Housing_agency
                 skinDataGridViewMain.DataSource = dd_rent;
                 skinDataGridViewMain.Refresh();
             }
-             if (skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)
+             if ((skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)|| (skinCheckBoxRent.Checked == false && skinCheckBoxSell.Checked == false))
             {
                 string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
                 DataTable dd_rent = data.Query(sql_rent);
@@ -276,21 +277,18 @@ namespace Housing_agency
         /// <param name="e"></param>
         private void skinWaterTextBoxDay_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((int )e.KeyChar>=48 && (int)e.KeyChar<=57)
+            if (e.KeyChar == 0x20) e.KeyChar = (char)0;  //禁止空格键
+            if ((e.KeyChar == 0x2D) && (((TextBox)sender).Text.Length == 0)) return;   //处理负数
+            if (e.KeyChar > 0x20)
             {
-                if (this.skinWaterTextBoxDay.Text.Length<1)
+                try
                 {
-                    e.Handled = false;
+                    double.Parse(((TextBox)sender).Text + e.KeyChar.ToString());
                 }
-                else
+                catch
                 {
-                    e.Handled = true;
+                    e.KeyChar = (char)0;   //处理非法字符
                 }
-            }
-            else
-            {
-                MessageBox.Show("请输入一个数字");
-                e.Handled = false;
             }
         }
         /// <summary>
@@ -304,5 +302,34 @@ namespace Housing_agency
             fp.id = skinDataGridViewMain.CurrentRow.Cells[0].Value.ToString();
             fp.Show();
         }
+        /// <summary>
+        /// 按下回车键调用查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtGoodsSearchInfo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Enter)
+            {
+                skinButtonSearch.PerformClick();
+            }
+        }
+        /// <summary>
+        /// 租房查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinButtonLendSearch_Click(object sender, EventArgs e)
+        {
+            FormLendSearch fls = new FormLendSearch();
+            fls.ShowDialog();
+        }
+
+        private void skinButtonSellSearch_Click(object sender, EventArgs e)
+        {
+            skinButtonLendSearch.PerformClick();
+        }
+
+      
     }
 }
