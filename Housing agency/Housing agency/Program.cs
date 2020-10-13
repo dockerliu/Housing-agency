@@ -1,4 +1,5 @@
-﻿using Housing_agency.Order;
+﻿using Housing_agency.HouseSource;
+using Housing_agency.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Housing_agency
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAdd());
+            Application.Run(new FormAddHouse());
         }
     }
 }

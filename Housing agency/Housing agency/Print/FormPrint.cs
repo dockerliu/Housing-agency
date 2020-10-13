@@ -18,7 +18,7 @@ namespace Housing_agency.Print
         /// <summary>
         ///  需要显示报表所要连接字符串
         /// </summary>
-        public string reportStr = @"Driver={MySQL ODBC 3.51 Driver};Server=192.168.1.95;Port=3306;Database=build;User=build; Password=111111;Option=3;";
+        public string reportStr = @"Driver={MySQL ODBC 3.51 Driver};Server=192.168.1.95;Port=3306;Database=build;User=build;CHARSET=GBK; Password=111111;Option=3;";
             GridppReport Report = new GridppReport();
         private void FormPrint_Load(object sender, EventArgs e)
         {
@@ -27,7 +27,7 @@ namespace Housing_agency.Print
             //从对应文件中载入报表模板数据
             Report.LoadFromFile(reportPath);
             //设置与数据源的连接串，因为在设计时指定的数据库路径是绝对路径。
-            //Report.DetailGrid.Recordset.ConnectionString = reportStr;
+            Report.DetailGrid.Recordset.ConnectionString = reportStr;
             //设置新的查询语句，减少数据量，便于查看补充的数据项目
             Report.DetailGrid.Recordset.QuerySQL= "select * from fangyuan WHERE bianhao='"+id+"'";
 

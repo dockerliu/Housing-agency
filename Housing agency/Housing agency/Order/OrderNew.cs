@@ -23,7 +23,11 @@ namespace Housing_agency
         public string currentSelectIndex;
         private void btn_Exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("确定要退出吗？", "提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                this.Close();
+
+            }
         }
 
         private void OrderNew_Load(object sender, EventArgs e)
@@ -135,14 +139,14 @@ namespace Housing_agency
                 skinDataGridViewMain.Refresh();
 
             }
-            if ((skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)|| (skinCheckBoxRent.Checked == false && skinCheckBoxSell.Checked == false))
+            if ((skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true) || (skinCheckBoxRent.Checked == false && skinCheckBoxSell.Checked == false))
             {
                 string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
                 DataTable dd_rent = data.Query(sql_rent);
                 skinDataGridViewMain.DataSource = dd_rent;
                 skinDataGridViewMain.Refresh();
             }
-            if(skinCheckBoxRent.Checked == false)
+            if (skinCheckBoxRent.Checked == false)
             {
                 string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
                 DataTable dd_rent = data.Query(sql_rent);
@@ -164,7 +168,7 @@ namespace Housing_agency
                 skinDataGridViewMain.DataSource = dd_rent;
                 skinDataGridViewMain.Refresh();
             }
-             if ((skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true)|| (skinCheckBoxRent.Checked == false && skinCheckBoxSell.Checked == false))
+            if ((skinCheckBoxRent.Checked == true && skinCheckBoxSell.Checked == true) || (skinCheckBoxRent.Checked == false && skinCheckBoxSell.Checked == false))
             {
                 string sql_rent = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan";
                 DataTable dd_rent = data.Query(sql_rent);
@@ -189,13 +193,13 @@ namespace Housing_agency
             if (skinCheckBoxLast.Checked)
             {
                 string sql_select = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan ";
-                if (skinWaterTextBoxDay.Text!="")
+                if (skinWaterTextBoxDay.Text != "")
                 {
                     DateTime dateTime = DateTime.Now.Date.AddDays(-Convert.ToInt32(skinWaterTextBoxDay.Text));
-                    sql_select += " where date<='" + DateTime.Now.AddDays(1) + "'and date>='" + dateTime+"'";
+                    sql_select += " where date<='" + DateTime.Now.AddDays(1) + "'and date>='" + dateTime + "'";
                 }
 
-                DataTable dd_day =data.Query(sql_select);
+                DataTable dd_day = data.Query(sql_select);
                 skinDataGridViewMain.DataSource = dd_day;
                 skinDataGridViewMain.Refresh();
                 this.skinCheckBoxRent.Enabled = false;
@@ -210,11 +214,11 @@ namespace Housing_agency
                 DataTable dd_day = data.Query(sql_select);
                 skinDataGridViewMain.DataSource = dd_day;
                 skinDataGridViewMain.Refresh();
-               
+
             }
         }
         /// <summary>
-        /// 查询按钮事件
+        /// 最模糊查询按钮事件
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -223,7 +227,7 @@ namespace Housing_agency
             try
             {
                 string sql_search = "SELECT bianhao AS 房源编号, date AS 登记日期, zhuangtai AS 当前状态, wuye AS 物业名称, huxing AS 户型结构, mianji AS 建筑面积, area AS 所在区域, z_floor AS 总层数, n_floor AS 位于层数, guwen AS 置业顾问, yongtu AS 物业用途, chengdu AS 装修程度, fang_type AS 户型, jiancheng AS 建成年份, address AS 具体地址 FROM fangyuan ";
-                if (txtGoodsSearchInfo.Text=="")
+                if (txtGoodsSearchInfo.Text == "")
                 {
                     DataTable dd_search = data.Query(sql_search);
                     skinDataGridViewMain.DataSource = dd_search;
@@ -309,7 +313,7 @@ namespace Housing_agency
         /// <param name="e"></param>
         private void txtGoodsSearchInfo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 skinButtonSearch.PerformClick();
             }
@@ -324,12 +328,33 @@ namespace Housing_agency
             FormLendSearch fls = new FormLendSearch();
             fls.ShowDialog();
         }
-
+        /// <summary>
+        /// 买房查询按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void skinButtonSellSearch_Click(object sender, EventArgs e)
         {
             skinButtonLendSearch.PerformClick();
         }
-
-      
+        /// <summary>
+        /// 增加房源按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void skinButtonAdd_Click(object sender, EventArgs e)
+        {
+            FormAdd add = new FormAdd();
+            add.ShowDialog();
+        }
+        /// <summary>
+        /// 增加房源图片导航按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_ImgAdd_Click(object sender, EventArgs e)
+        {
+            this.skinButtonAdd.PerformClick();
+        }
     }
 }
